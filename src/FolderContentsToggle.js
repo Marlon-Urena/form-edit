@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import File from "./File"
 
 
 class FolderContentsToggle extends Component {
@@ -17,6 +18,13 @@ class FolderContentsToggle extends Component {
     }
 
   render() {
+//     if(this.state.textDisplay){
+//         <ul>
+//             <li>File1</li>
+//             <li>File2</li>
+//             <li>File3</li>
+//         </ul>
+// }
     return (
       <div>
           <h1>Home</h1>
@@ -24,14 +32,14 @@ class FolderContentsToggle extends Component {
                 Toggle
             </button>
             <br></br>
-            {!this.state.textDisplay && this.props.text}
+            {this.state.textDisplay && this.props.text}
 
-            {/* <ul>
+
+            <ul>
                 <li>File1</li>
                 <li>File2</li>
                 <li>File3</li>
-            </ul> */}
-            
+            </ul>
       </div>
     );
   }
