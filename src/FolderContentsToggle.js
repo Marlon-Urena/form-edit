@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import File from "./File"
 
+
+
+const files = ["File1","File2","File3"];
+const listItems = files.map((files) =>
+  <li>{files}</li>
+);
 
 class FolderContentsToggle extends Component {
     constructor(props){
@@ -10,7 +15,7 @@ class FolderContentsToggle extends Component {
             textDisplay: false,
         }
     }
-    
+
     ToggleButton(){
         this.setState((currentState) => ({
             textDisplay: !currentState.textDisplay, 
@@ -18,13 +23,6 @@ class FolderContentsToggle extends Component {
     }
 
   render() {
-//     if(this.state.textDisplay){
-//         <ul>
-//             <li>File1</li>
-//             <li>File2</li>
-//             <li>File3</li>
-//         </ul>
-// }
     return (
       <div>
           <h1>Home</h1>
@@ -32,14 +30,7 @@ class FolderContentsToggle extends Component {
                 Toggle
             </button>
             <br></br>
-            {this.state.textDisplay && this.props.text}
-
-
-            <ul>
-                <li>File1</li>
-                <li>File2</li>
-                <li>File3</li>
-            </ul>
+            {this.state.textDisplay && listItems}
       </div>
     );
   }
@@ -47,9 +38,7 @@ class FolderContentsToggle extends Component {
 
 FolderContentsToggle.propTypes = {
   text: PropTypes.string.isRequired,
-  file1: PropTypes.string.isRequired,
-  file2: PropTypes.string.isRequired,
-  file3: PropTypes.string.isRequired,
+  list: PropTypes.array.isRequired,
 };
 
 export default FolderContentsToggle;
